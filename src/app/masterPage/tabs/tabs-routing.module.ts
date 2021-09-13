@@ -10,7 +10,15 @@ const routes: Routes = [
     children: [
       {
         path: 'tab1',
-        loadChildren: () => import('../home/home.module').then(m => m.HomePageModule)
+        loadChildren: () => import('../../pages/home/home.module').then(m => m.HomePageModule)
+      },
+      {
+      path: 'tab2',
+      loadChildren: () => import('../../pages/favoritos/favoritos.module').then(m => m.FavoritosPageModule)
+      },
+      {
+      path: 'tab3',
+      loadChildren: () => import('../../pages/perfil/perfil.module').then(m => m.PerfilPageModule)
       },
       {
         path: '',
@@ -23,7 +31,7 @@ const routes: Routes = [
     path: '',
     redirectTo: '/tabs/tab1',
     pathMatch: 'full'
-  }
+  },
 ];
 
 @NgModule({
