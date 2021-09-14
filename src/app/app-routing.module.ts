@@ -3,20 +3,12 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 
 const routes: Routes = [
   {
+    path: 'login',
+    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+  },
+  {
     path: '',
-    loadChildren: () => import('./masterPage/tabs/tabs.module').then( m => m.TabsPageModule)
-  },
-  {
-    path: 'favoritos',
-    loadChildren: () => import('./pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule)
-  },
-  {
-    path: 'perfil',
-    loadChildren: () => import('./pages/perfil/perfil.module').then( m => m.PerfilPageModule)
-  },
-  {
-    path: 'login', 
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule )
+    loadChildren: () => import('./masterPage/tabs/tabs.module').then(m => m.TabsPageModule)
   }
 ];
 @NgModule({
