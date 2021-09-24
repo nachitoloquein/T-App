@@ -2,7 +2,9 @@
   <ion-toolbar>
     <ion-title>Favoritos</ion-title>
     <ion-buttons slot="end">
-      <ion-icon name="filter-outline" class="icon-filter"></ion-icon>
+      <ion-button (click)="abrirPopover($event)">
+        <ion-icon name="filter-outline" class="icon-filter"></ion-icon> 
+      </ion-button>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

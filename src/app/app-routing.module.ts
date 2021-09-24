@@ -13,6 +13,10 @@ const routes: Routes = [
   {
     path: 'register',
     loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+  },
+  {
+    path: 'popover-filtro',
+    loadChildren: () => import('./popover/popover-filtro/popover-filtro.module').then( m => m.PopoverFiltroPageModule)
   }
 ];
 @NgModule({

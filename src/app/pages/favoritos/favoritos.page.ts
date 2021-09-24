@@ -1,13 +1,25 @@
-import { Component} from '@angular/core';
+import { Component, OnInit} from '@angular/core';
+import { PopoverController } from '@ionic/angular';
+import { PopoverFiltroPage } from 'src/app/popover/popover-filtro/popover-filtro.page';
 
 @Component({
   selector: 'app-favoritos',
   templateUrl: './favoritos.page.html',
   styleUrls: ['./favoritos.page.scss'],
 })
-export class FavoritosPage {
+export class FavoritosPage implements OnInit{
 
-  constructor() { }
+  constructor(public popoverController: PopoverController) { }
 
+  ngOnInit() {
+    
+  }
 
+  async abrirPopover(event){
+    const popover = await this.popoverController.create({
+      component: PopoverFiltroPage,
+      event
+    });
+   return await popover.present();
+  }
 }
