@@ -1,18 +1,66 @@
-<ion-header>
+<!-- <ion-header>
   <ion-toolbar>
     <img alt="logo" src="../../../assets/images/card-login.jpg" > 
   </ion-toolbar>
-</ion-header>
-
-<ion-content>
-  <ion-item>
-    <ion-label position="floating">Correo electrónico</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-item>
-    <ion-label position="floating">Contraseña</ion-label>
-    <ion-input></ion-input>
-  </ion-item>
-  <ion-button expand="block">Iniciar Sesión</ion-button>
-  <a href="">¿Olvidaste tu Contraseña?</a>
+</ion-header>  -->
+<ion-content fullscreen>
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(../../../assets/images/card-login.jpg);">
+					<span class="login100-form-title-1">
+						Iniciar Sesión
+					</span>
+				</div>
+				<section class="login100-form validate-form">
+					<div class="wrap-input100 validate-input m-b-26">
+						<span class="label-input100">Nombre de usuario</span>
+						<input class="input100" type="email" name="username" required placeholder="Ingrese su nombre de usuario">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="wrap-input100 validate-input m-b-18">
+						<span class="label-input100">Contraseña</span>
+						<input class="input100" type="password" name="pass"  required placeholder="Ingrese su contraseña">
+						<span class="focus-input100"></span>
+					</div>
+					<div class="flex-sb-m w-full p-b-30">
+						<div>
+							<a href="">
+								Olvidaste tu contraseña?
+							</a>
+						</div>
+            <div>
+							<a href="" >
+								Regístrate
+							</a>
+						</div>
+					</div>
+					<div class="container-login100-form-btn">
+						<button class="login100-form-btn">
+							Entrar
+						</button>
+					</div>
+				</section>
+			</div>
+		</div>
+  <!-- <div class="limiter">
+    <div class="wrap-login100">
+      <section class="formulario-login">
+        <ion-item>
+          <ion-label position="floating">Correo electrónico</ion-label>
+          <ion-input type="email"></ion-input>
+        </ion-item>
+        <ion-item>
+          <ion-label position="floating">Contraseña</ion-label>
+          <ion-input type="password"></ion-input>
+        </ion-item>
+      </section>
+      <section class="boton-entrar">
+        <ion-button expand="block">Iniciar Sesión</ion-button>
+        <a href="">¿Olvidaste tu Contraseña?</a>
+      </section>
+      <section class="boton-registrar">
+        <ion-button expand="full" color="success">Registrarse</ion-button>
+      </section>
+    </div>
+  </div> -->
 </ion-content>

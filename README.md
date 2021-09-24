@@ -1,4 +1,4 @@
-<p align="center"><a href="https://ionicframework.com target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg" width="400"></a></p>
+<p align="center"><a href="https://ionicframework.com" target="_blank"><img src="https://upload.wikimedia.org/wikipedia/commons/d/d1/Ionic_Logo.svg" width="400"></a></p>
 
 
 # Ionic Framework
