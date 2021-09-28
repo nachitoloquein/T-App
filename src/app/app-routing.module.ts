@@ -17,6 +17,10 @@ const routes: Routes = [
   {
     path: 'popover-filtro',
     loadChildren: () => import('./popover/popover-filtro/popover-filtro.module').then( m => m.PopoverFiltroPageModule)
+  },
+  {
+    path: 'recuperar-contrasena',
+    loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   }
 ];
 @NgModule({
