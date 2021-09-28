@@ -9,12 +9,12 @@
 				<section class="login100-form validate-form">
 					<div class="wrap-input100 validate-input m-b-26">
 						<span class="label-input100">Nombre de usuario</span>
-						<input class="input100" type="email" name="username" required placeholder="Ingrese su nombre de usuario">
+						<input class="input100" type="email" name="username" required placeholder="Ingrese su nombre de usuario" [(ngModel)]="email">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="wrap-input100 validate-input m-b-18">
 						<span class="label-input100">Contraseña</span>
-						<input class="input100" type="password" name="pass"  required placeholder="Ingrese su contraseña">
+						<input class="input100" type="password" name="pass"  required placeholder="Ingrese su contraseña"  [(ngModel)]="password">
 						<span class="focus-input100"></span>
 					</div>
 					<div class="flex-sb-m w-full p-b-30">
@@ -30,7 +30,7 @@
 						</div>
 					</div>
 					<div class="container-login100-form-btn">
-						<button class="login100-form-btn">
+						<button class="login100-form-btn" (click)="OnSubmitLogin()">
 							Entrar
 						</button>
 					</div>

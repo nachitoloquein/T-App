@@ -8,6 +8,9 @@ import { AuthService } from "../../services/auth.service";
 })
 export class LoginPage implements OnInit {
 
+  email:string;
+  password: string;
+
   constructor(private authService: AuthService) { }
 
   ngOnInit() {
@@ -15,6 +18,6 @@ export class LoginPage implements OnInit {
 
   OnSubmitLogin()
   {
-    
+    this.authService.login(this.email, this.password)
   }
 }
