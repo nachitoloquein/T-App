@@ -1,6 +1,6 @@
 import { Component, OnInit} from '@angular/core';
 import { PopoverController } from '@ionic/angular';
-import { PopoverFiltroPage } from 'src/app/popover/popover-filtro/popover-filtro.page';
+import { PopoverFiltroPage } from 'src/app/Front-end/popover/popover-filtro/popover-filtro.page';
 
 @Component({
   selector: 'app-favoritos',

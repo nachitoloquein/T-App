@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
-
+import { AuthGuard } from "../../../guards/auth.guard";
 const routes: Routes = [
   {
     path: 'tabs',
@@ -10,15 +10,18 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../../pages/home/home.module').then( m => m.HomePageModule)
+        loadChildren: () => import('../../pages/home/home.module').then( m => m.HomePageModule),
+        canActivate : [AuthGuard]
       },
       {
         path: 'favoritos',
-        loadChildren: () => import('../../pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule)
+        loadChildren: () => import('../../pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule),
+        canActivate : [AuthGuard]
       },
       {
         path: 'perfil',
-        loadChildren: () => import('../../pages/perfil/perfil.module').then( m => m.PerfilPageModule)
+        loadChildren: () => import('../../pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+        canActivate : [AuthGuard]
       },
       {
         path: '',

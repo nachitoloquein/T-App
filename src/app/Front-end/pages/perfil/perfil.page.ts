@@ -1,4 +1,5 @@
 import { Component, Renderer2} from '@angular/core';
+import { AuthService } from "../../../services/auth.service";
 
 @Component({
   selector: 'app-perfil',
@@ -7,7 +8,8 @@ import { Component, Renderer2} from '@angular/core';
 })
 export class PerfilPage {
 
-  constructor(private renderer: Renderer2) { }
+  constructor(private renderer: Renderer2,
+    public authservice : AuthService) { }
 
   onToggleColorTheme(event){
     console.log(event.detail.checked);
@@ -19,5 +21,9 @@ export class PerfilPage {
       //document.body.setAttribute('color-theme', 'light');
       this.renderer.setAttribute(document.body, 'color-theme', 'light')
     }
+  }
+
+  OnLogout(){
+    this.authservice.logout()
   }
 }

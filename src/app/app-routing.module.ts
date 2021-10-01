@@ -1,30 +1,34 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { AuthGuard } from "./guards/auth.guard";
+import { NologinGuard } from "./guards/nologin.guard";
 
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./pages/login/login.module').then(m => m.LoginPageModule)
+    loadChildren: () => import('./Front-end/pages/login/login.module').then(m => m.LoginPageModule),
+    canActivate: [NologinGuard]
   },
   {
     path: '',
-    loadChildren: () => import('./masterPage/tabs/tabs.module').then(m => m.TabsPageModule)
+    loadChildren: () => import('./Front-end/masterPage/tabs/tabs.module').then(m => m.TabsPageModule),
+    canActivate : [AuthGuard],
   },
   {
     path: 'register',
-    loadChildren: () => import('./pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./Front-end/pages/register/register.module').then( m => m.RegisterPageModule)
   },
   {
     path: 'popover-filtro',
-    loadChildren: () => import('./popover/popover-filtro/popover-filtro.module').then( m => m.PopoverFiltroPageModule)
+    loadChildren: () => import('./Front-end/popover/popover-filtro/popover-filtro.module').then( m => m.PopoverFiltroPageModule)
   },
   {
     path: 'recuperar-contrasena',
-    loadChildren: () => import('./pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
+    loadChildren: () => import('./Front-end/pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   },
   {
     path: 'te-detalle',
-    loadChildren: () => import('./pages/te-detalle/te-detalle.module').then( m => m.TeDetallePageModule)
+    loadChildren: () => import('./Front-end/pages/te-detalle/te-detalle.module').then( m => m.TeDetallePageModule)
   }
 ];
 @NgModule({
