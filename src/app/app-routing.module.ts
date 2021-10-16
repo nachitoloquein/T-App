@@ -16,7 +16,8 @@ const routes: Routes = [
   },
   {
     path: 'register',
-    loadChildren: () => import('./Front-end/pages/register/register.module').then( m => m.RegisterPageModule)
+    loadChildren: () => import('./Front-end/pages/register/register.module').then( m => m.RegisterPageModule),
+    canActivate : [NologinGuard]
   },
   {
     path: 'popover-filtro',

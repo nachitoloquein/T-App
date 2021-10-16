@@ -25,4 +25,12 @@ export class AuthService {
       this.router.navigate(['/login']);
     });
   }
+
+  register(email: string, password: string){
+    return new Promise ((resolve, reject)=>{
+    this.AFauth.createUserWithEmailAndPassword(email, password).then(res =>{
+      resolve(res)
+    }).catch( err=> reject(err))
+  })
+  }
 }
