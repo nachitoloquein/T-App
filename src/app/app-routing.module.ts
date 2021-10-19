@@ -26,11 +26,11 @@ const routes: Routes = [
   {
     path: 'recuperar-contrasena',
     loadChildren: () => import('./Front-end/pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
-  },
+  },/* 
   {
     path: 'te-detalle',
     loadChildren: () => import('./Front-end/pages/te-detalle/te-detalle.module').then( m => m.TeDetallePageModule)
-  }
+  } */
 ];
 @NgModule({
   imports: [

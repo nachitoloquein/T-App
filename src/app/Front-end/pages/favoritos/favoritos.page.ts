@@ -1,15 +1,9 @@
 import { Component, OnInit} from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverFiltroPage } from 'src/app/Front-end/popover/popover-filtro/popover-filtro.page';
-import { TeService } from '../../../services/te.service';
-
-interface tea {
-  nombre: string
-  dificultad: number
-  urlNacionalidad: string
-  id: string
-  foto: string
-}
+import { TeService, tea } from '../../../services/te.service';
+import { ModalController } from "@ionic/angular";
+import { TeaDetailComponent } from '../tea-detail/tea-detail.component';
 
 @Component({
   selector: 'app-favoritos',
@@ -20,16 +14,12 @@ export class FavoritosPage implements OnInit{
 
   public teas: any=[];
 
-  constructor(public popoverController: PopoverController, public teService: TeService) { }
+  constructor(public popoverController: PopoverController,
+     public teService: TeService, private modal : ModalController) { }
 
   ngOnInit() {
     this.teService.getTea().subscribe( teas =>{
-      teas.map(tea => {
-        const data : tea = tea.payload.doc.data() as tea;
-        data.id = tea.payload.doc.id;
-        this.teas.push(data);
-
-      })
+    this.teas = teas;
     })
   }
 
@@ -39,5 +29,14 @@ export class FavoritosPage implements OnInit{
       event
     });
    return await popover.present();
+  }
+
+  openTea(tea){
+    this.modal.create({
+      component: TeaDetailComponent,
+      componentProps : {
+        name: tea.name
+      }
+    }).then((modal)=> modal.present())
   }
 }
