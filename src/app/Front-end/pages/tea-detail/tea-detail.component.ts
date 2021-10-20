@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NavParams } from '@ionic/angular';
 
 @Component({
   selector: 'app-tea-detail',
@@ -7,8 +8,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TeaDetailComponent implements OnInit {
 
-  constructor() { }
+  public name: string;
+  constructor( private navparams : NavParams) { }
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.name = this.navparams.get('name')
+  }
 
 }

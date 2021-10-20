@@ -1,29 +1,41 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-export interface tea {
-  nombre: string
-  dificultad: number
-  urlNacionalidad: string
-  id: string
+export interface Tea {
+  nombre: string,
+  dificultad: number,
+  urlNacionalidad: string,
+  id: string,
   foto: string
 }
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class TeService {
 
-  constructor( private db: AngularFirestore) { }
+  private teasCollections: AngularFirestoreCollection<Tea>;
+  teas: Observable<Tea[]>;
 
-  getTea(){
-    return this.db.collection('te').snapshotChanges().pipe(map(tes=>{
-      return tes.map(a =>{
-        const data = a.payload.doc.data() as tea;
-        data.id = a.payload.doc.id;
-        return data;
-      })
-    }))
+  constructor( private db: AngularFirestore) { 
+    this.teasCollections = db.collection<Tea>('te');
+    this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
+      return actions.map(a =>{
+        const data = a.payload.doc.data() as Tea;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      });
+    }));
+  }
+
+  listaTeas(){
+    return this.teas;
+  }
+
+  ObtenerTe(id){
+    
   }
 }

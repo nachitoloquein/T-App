@@ -1,7 +1,7 @@
 import { Component, OnInit} from '@angular/core';
 import { PopoverController } from '@ionic/angular';
 import { PopoverFiltroPage } from 'src/app/Front-end/popover/popover-filtro/popover-filtro.page';
-import { TeService, tea } from '../../../services/te.service';
+import { TeService } from '../../../services/te.service';
 import { ModalController } from "@ionic/angular";
 import { TeaDetailComponent } from '../tea-detail/tea-detail.component';
 
@@ -12,15 +12,17 @@ import { TeaDetailComponent } from '../tea-detail/tea-detail.component';
 })
 export class FavoritosPage implements OnInit{
 
-  public teas: any=[];
+  teas: any=[];
 
   constructor(public popoverController: PopoverController,
-     public teService: TeService, private modal : ModalController) { }
+     private teService: TeService, private modal : ModalController) {
+        this.teService.listaTeas().subscribe(tea=>{
+          this.teas = tea;
+          console.log(this.teas)
+        })
+      }
 
   ngOnInit() {
-    this.teService.getTea().subscribe( teas =>{
-    this.teas = teas;
-    })
   }
 
   async abrirPopover(event){
