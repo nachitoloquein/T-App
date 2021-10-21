@@ -8,7 +8,10 @@ export interface Tea {
   dificultad: number,
   urlNacionalidad: string,
   id: string,
-  foto: string
+  foto: string,
+  instrucciones: string,
+  temperatura: string,
+  tipoTe: string,
 }
 
 @Injectable({
