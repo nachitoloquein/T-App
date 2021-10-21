@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { TeaDetailComponent } from './Front-end/pages/tea-detail/tea-detail.component';
 import { AuthGuard } from "./guards/auth.guard";
 import { NologinGuard } from "./guards/nologin.guard";
 
@@ -26,11 +27,11 @@ const routes: Routes = [
   {
     path: 'recuperar-contrasena',
     loadChildren: () => import('./Front-end/pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
-  },/* 
+  },
   {
-    path: 'te-detalle',
-    loadChildren: () => import('./Front-end/pages/te-detalle/te-detalle.module').then( m => m.TeDetallePageModule)
-  } */
+    path: 'te/:id',
+    component: TeaDetailComponent,
+  } 
 ];
 @NgModule({
   imports: [

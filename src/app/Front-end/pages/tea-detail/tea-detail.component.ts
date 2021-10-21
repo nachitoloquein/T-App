@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NavParams } from '@ionic/angular';
+import { Tea, TeService } from '../../../services/te.service';
+import { ActivatedRoute, Params } from '@angular/router'
 
 @Component({
   selector: 'app-tea-detail',
@@ -8,11 +10,18 @@ import { NavParams } from '@ionic/angular';
 })
 export class TeaDetailComponent implements OnInit {
 
-  public name: string;
-  constructor( private navparams : NavParams) { }
+  constructor( private ts: TeService, private route: ActivatedRoute) { }
+  public tea: Tea;
 
   ngOnInit() {
-    this.name = this.navparams.get('name')
+    const idTea =  this.route.snapshot.params['id']; 
+    this.obtenerTe(idTea);
+  }
+
+  obtenerTe(idTea: string): void{
+    this.ts.ObtenerTe(idTea).subscribe(tea=>{
+       this.tea = tea;
+      });
   }
 
 }

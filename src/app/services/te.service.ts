@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
@@ -18,7 +18,9 @@ export interface Tea {
 export class TeService {
 
   private teasCollections: AngularFirestoreCollection<Tea>;
-  teas: Observable<Tea[]>;
+  private teas: Observable<Tea[]>;
+  private tea: Observable<Tea>;
+  private teaDoc: AngularFirestoreDocument<Tea>;
 
   constructor( private db: AngularFirestore) { 
     this.teasCollections = db.collection<Tea>('te');
@@ -35,7 +37,16 @@ export class TeService {
     return this.teas;
   }
 
-  ObtenerTe(id){
-    
+  ObtenerTe(idTea: string){
+    this.teaDoc =  this.db.doc<Tea>(`te/${idTea}`);
+    return this.tea = this.teaDoc.snapshotChanges().pipe(map(action=>{
+      if (action.payload.exists==false){
+        return null;
+      }else{
+        const data = action.payload.data() as Tea;
+        data.id = action.payload.id;
+        return data;
+      }
+    }))
   }
 }
