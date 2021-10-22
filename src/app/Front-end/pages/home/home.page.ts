@@ -15,5 +15,8 @@ export class HomePage {
       this.teas = tea;
     })
   }
-
+  
+  ordenarPorNombre(){
+    this.teService.OrdernarPorNombre();
+  }
 }
