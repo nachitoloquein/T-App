@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { PopoverController } from '@ionic/angular';
+import { PopoverController } from '@ionic/angular';/* 
+import { TeService } from '../../../services/te.service'; */
 
 @Component({
   selector: 'app-popover-filtro',
@@ -8,12 +9,18 @@ import { PopoverController } from '@ionic/angular';
 })
 export class PopoverFiltroPage implements OnInit {
 
-  constructor(public popoverController: PopoverController) { }
+  /* teas: any=[]; */
+  constructor(public popoverController: PopoverController/* , private teService: TeService */) { }
 
   ngOnInit() {
   }
 
   close(){
-    this.popoverController.dismiss()
+    this.popoverController.dismiss();
   }
+
+  /* ordenarPorNombre(){
+    this.teService.OrdernarPorNombre();
+    this.close();
+  } */
 }

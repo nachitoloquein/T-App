@@ -3,6 +3,8 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
 import { AuthGuard } from "../../../guards/auth.guard";
+import { TeaDetailComponent } from '../../pages/tea-detail/tea-detail.component'
+
 const routes: Routes = [
   {
     path: 'tabs',
@@ -27,6 +29,10 @@ const routes: Routes = [
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
+      },
+      {
+      path: 'te/:id',
+      component: TeaDetailComponent,
       }
     ]
   },

@@ -3,16 +3,13 @@
     Ordenar por
   </ion-list-header>
   <ion-item>
-    Temperatura
+    Dificultad menor
   </ion-item>
   <ion-item>
-    Dificultad
+    Dificultad mayor
   </ion-item>
-  <ion-item>
+  <ion-item (click)="ordenarPorNombre()">
     Orden alfabético
-  </ion-item>
-  <ion-item>
-    Tipo de té
   </ion-item>
   <ion-item (click)="close()">
     <ion-label>Cerrar</ion-label>

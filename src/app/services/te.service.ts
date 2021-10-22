@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { orderBy, query, limit } from 'firebase/firestore';
 
 export interface Tea {
   nombre: string,
@@ -39,6 +40,10 @@ export class TeService {
   listaTeas(){
     return this.teas;
   }
+
+  /* OrdernarPorNombre(){
+    return this.db.collection('te', ref => ref.orderBy('nombre'));
+  } */
 
   ObtenerTe(idTea: string){
     this.teaDoc =  this.db.doc<Tea>(`te/${idTea}`);

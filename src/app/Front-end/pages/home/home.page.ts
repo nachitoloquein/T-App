@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { TeService } from '../../../services/te.service';
+
 
 @Component({
   selector: 'app-home',
@@ -7,6 +9,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  teas: any=[];
+  constructor(private teService: TeService) {
+    this.teService.listaTeas().subscribe(tea=>{
+      this.teas = tea;
+    })
+  }
 
 }
