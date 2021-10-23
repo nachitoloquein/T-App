@@ -19,8 +19,10 @@ export class PopoverFiltroPage implements OnInit {
     this.popoverController.dismiss();
   }
 
-  /* ordenarPorNombre(){
-    this.teService.OrdernarPorNombre();
-    close();
+  /* ordenar(){
+    this.teService.OrdernarPorNombre().subscribe(tea=>{
+      this.teas = tea;
+    });
+    this.close();
   } */
 }

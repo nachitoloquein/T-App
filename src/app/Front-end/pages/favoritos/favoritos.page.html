@@ -2,9 +2,14 @@
   <ion-toolbar>
     <ion-title>Favoritos</ion-title>
     <ion-buttons slot="end">
-      <ion-button (click)="abrirPopover($event)">
+     <!--  <ion-button (click)="abrirPopover($event)">
         <ion-icon name="filter-outline" class="icon-filter"></ion-icon> 
-      </ion-button>
+      </ion-button> -->
+        <ion-select interface="action-sheet">
+          <ion-select-option value="Alfabeto">Alfabeto</ion-select-option>
+          <ion-select-option value="Temperatura">Temperatura</ion-select-option>
+          <ion-select-option value="Dificultad">Dificultad</ion-select-option>
+        </ion-select>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>

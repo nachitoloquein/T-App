@@ -26,7 +26,6 @@ export class TeService {
   private tea: Observable<Tea>;
   private teaDoc: AngularFirestoreDocument<Tea>;
 
-
   constructor( private db: AngularFirestore) { 
     this.teasCollections = db.collection<Tea>('te');
     this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
@@ -43,7 +42,14 @@ export class TeService {
   }
 
   OrdernarPorNombre(){
-    this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy('nombre'));
+    /* this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy('nombre'));
+    this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
+      return actions.map(a =>{
+        const data = a.payload.doc.data() as Tea;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      });
+    })); */
   }
 
   ObtenerTe(idTea: string){
