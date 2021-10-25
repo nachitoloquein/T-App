@@ -20,10 +20,6 @@ const routes: Routes = [
     canActivate : [NologinGuard]
   },
   {
-    path: 'popover-filtro',
-    loadChildren: () => import('./Front-end/popover/popover-filtro/popover-filtro.module').then( m => m.PopoverFiltroPageModule)
-  },
-  {
     path: 'recuperar-contrasena',
     loadChildren: () => import('./Front-end/pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   },
