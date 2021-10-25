@@ -3,14 +3,17 @@
     <ion-title>
       Principal
     </ion-title>
-    <ion-buttons slot="end">
-      <ion-icon name="search-outline" class="icon-search"></ion-icon>
-    </ion-buttons>
+  </ion-toolbar>  
+  <ion-toolbar>
+    <ion-searchbar placeholder='Intenta "Bubble Tea"'
+    [(ngModel)]="searchTerm" showCancelButton="focus"
+    animated>    
+    </ion-searchbar>
   </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card *ngFor = "let tea of teas">
+  <ion-card *ngFor = "let tea of teas | filter:searchTerm">
     <ion-router-link href="tabs/te/{{tea.id}}">
     <img [src]="tea.foto" />
   </ion-router-link>

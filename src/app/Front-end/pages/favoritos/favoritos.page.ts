@@ -12,6 +12,7 @@ export class FavoritosPage implements OnInit{
   opcion: string;
   tipeTea: string;
   country: string;
+  temp: string;
 
   constructor( private teService: TeService) {
       this.desordenar()
@@ -33,6 +34,12 @@ export class FavoritosPage implements OnInit{
 
   filtrarPorTipoTe(){
     this.teService.FiltrarTipoTe(this.tipeTea).subscribe(tea =>{
+      this.teas = tea;
+    });
+  }
+
+  filtrarPorTemperatura(){
+    this.teService.FiltrarPorTemperatura(this.temp).subscribe(tea =>{
       this.teas = tea;
     });
   }

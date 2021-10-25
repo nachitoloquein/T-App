@@ -56,6 +56,12 @@ export class TeService {
    return this.teas;
   }
 
+  FiltrarPorTemperatura(tem){
+    this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('temperatura', '==', tem));
+    this.ejecutarTiempoReal();
+    return this.teas;
+  }
+
   FiltrarPorNacionalidad(nac){
     this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('urlNacionalidad', '==', nac ));
     this.ejecutarTiempoReal();

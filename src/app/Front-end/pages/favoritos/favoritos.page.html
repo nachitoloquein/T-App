@@ -29,6 +29,15 @@
       </ion-select>
     </ion-buttons>
   </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-label>Temperatura:</ion-label>
+      <ion-select (ionChange)="filtrarPorTemperatura()" [(ngModel)]="temp">
+        <ion-select-option value="Frío">Frío</ion-select-option>
+        <ion-select-option value="Caliente">Caliente</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+  </ion-toolbar>
 </ion-header>
 
 <ion-content fullscreen>
