@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
-import { orderBy, query, limit } from 'firebase/firestore';
 
 export interface Tea {
   nombre: string,
@@ -29,8 +28,7 @@ export class TeService {
   constructor( private db: AngularFirestore) { 
   }
 
-  listaTeas(){
-    this.teasCollections = this.db.collection<Tea>('te');
+  ejecutarTiempoReal(){
     this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
       return actions.map(a =>{
         const data = a.payload.doc.data() as Tea;
@@ -38,20 +36,31 @@ export class TeService {
         return {id, ...data};
       });
     }));
+  }
+
+  listaTeas(){
+    this.teasCollections = this.db.collection<Tea>('te');
+    this.ejecutarTiempoReal();
     return this.teas;
   }
 
-  OrdernarPor(){
-   this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy('nombre'));
-   this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
-    return actions.map(a =>{
-      const data = a.payload.doc.data() as Tea;
-      const id = a.payload.doc.id;
-      return {id, ...data};
-    });
-  }));
+  OrdernarPor(cosa){
+   this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy(cosa));
+   this.ejecutarTiempoReal();
    return this.teas;
   }
+
+  FiltrarTipoTe(tt){
+   this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('tipoTe', '==',tt ));
+   this.ejecutarTiempoReal();
+   return this.teas;
+  }
+
+  FiltrarPorNacionalidad(nac){
+    this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('urlNacionalidad', '==', nac ));
+    this.ejecutarTiempoReal();
+    return this.teas;
+   }
 
   ObtenerTe(idTea: string){
     this.teaDoc =  this.db.doc<Tea>(`te/${idTea}`);

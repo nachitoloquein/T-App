@@ -1,10 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-<<<<<<< HEAD
-import { PopoverController } from '@ionic/angular';
-=======
->>>>>>> 0e2b269118a94fb6d2d1718a602e8f298f3bebae
 import { TeService } from '../../../services/te.service';
-import { ModalController } from "@ionic/angular";
 
 @Component({
   selector: 'app-favoritos',
@@ -14,25 +9,37 @@ import { ModalController } from "@ionic/angular";
 export class FavoritosPage implements OnInit{
 
   teas: any=[];
+  opcion: string;
+  tipeTea: string;
+  country: string;
 
-  constructor( private teService: TeService, private modal : ModalController) {
+  constructor( private teService: TeService) {
       this.desordenar()
   }
 
   ngOnInit() {}
 
-<<<<<<< HEAD
-=======
   ordenar(){
-    this.teService.OrdernarPor().subscribe(tea =>{
+    this.teService.OrdernarPor(this.opcion).subscribe(tea =>{
       this.teas = tea;
-    })
+    });
   }
->>>>>>> 0e2b269118a94fb6d2d1718a602e8f298f3bebae
 
   desordenar(){
     this.teService.listaTeas().subscribe(tea=>{
       this.teas = tea;
-  })
+  });
+  }
+
+  filtrarPorTipoTe(){
+    this.teService.FiltrarTipoTe(this.tipeTea).subscribe(tea =>{
+      this.teas = tea;
+    });
+  }
+
+  filtrarPorNacionalidad(){
+    this.teService.FiltrarPorNacionalidad('https://www.countryflags.io/'+this.country+'/flat/64.png').subscribe(tea =>{
+      this.teas = tea;
+    });
   }
 }

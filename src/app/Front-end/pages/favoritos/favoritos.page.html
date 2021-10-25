@@ -1,12 +1,32 @@
 <ion-header class="ion-no-border">
   <ion-toolbar>
-    <ion-title>Favoritos</ion-title>
+    <ion-buttons slot="start">
+      <ion-title>Favoritos</ion-title>
+    </ion-buttons>
     <ion-buttons slot="end">
-        <ion-select interface="action-sheet" (ionChange)="ordenar()">
-          <ion-select-option value="nombre">Alfabeto</ion-select-option>
-          <ion-select-option value="Temperatura">Temperatura</ion-select-option>
-          <ion-select-option value="Dificultad">Dificultad</ion-select-option>
-        </ion-select>
+      <ion-label>Ordenar por:</ion-label>
+      <ion-select interface="action-sheet" (ionChange)="ordenar()" [(ngModel)]="opcion">
+        <ion-select-option value="nombre">Alfabeto</ion-select-option>
+        <ion-select-option value="dificultad">Dificultad</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+  </ion-toolbar>
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-label>Tipo de té:</ion-label>
+      <ion-select (ionChange)="filtrarPorTipoTe()" [(ngModel)]="tipeTea">
+        <ion-select-option value="Té Verde">Té Verde</ion-select-option>
+        <ion-select-option value="Té Negro">Té Negro</ion-select-option>
+        <ion-select-option value="Té Rojo">Té Rojo</ion-select-option>
+      </ion-select>
+    </ion-buttons>
+    <ion-buttons slot="end">
+      <ion-label>Nacionalidad:</ion-label>
+      <ion-select (ionChange)="filtrarPorNacionalidad()" [(ngModel)]="country">
+        <ion-select-option value="gb">Inglaterra</ion-select-option>
+        <ion-select-option value="cn">China</ion-select-option>
+        <ion-select-option value="tw">Taiwan</ion-select-option>
+      </ion-select>
     </ion-buttons>
   </ion-toolbar>
 </ion-header>
@@ -28,5 +48,4 @@
         <img [src]="tea.urlNacionalidad">
       </ion-card-header>
     </ion-card>
-
 </ion-content>
