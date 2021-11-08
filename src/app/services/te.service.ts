@@ -78,6 +78,6 @@ export class TeService {
         data.id = action.payload.id;
         return data;
       }
-    }))
+    }));
   }
 }

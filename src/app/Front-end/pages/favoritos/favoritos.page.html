@@ -15,6 +15,7 @@
     <ion-buttons slot="start">
       <ion-label>Tipo de té:</ion-label>
       <ion-select (ionChange)="filtrarPorTipoTe()" [(ngModel)]="tipeTea">
+        <ion-select-option value="Todos">Todos</ion-select-option>
         <ion-select-option value="Té Verde">Té Verde</ion-select-option>
         <ion-select-option value="Té Negro">Té Negro</ion-select-option>
         <ion-select-option value="Té Rojo">Té Rojo</ion-select-option>
@@ -23,6 +24,7 @@
     <ion-buttons slot="end">
       <ion-label>Nacionalidad:</ion-label>
       <ion-select (ionChange)="filtrarPorNacionalidad()" [(ngModel)]="country">
+        <ion-select-option value="Todos">Todos</ion-select-option>
         <ion-select-option value="gb">Inglaterra</ion-select-option>
         <ion-select-option value="cn">China</ion-select-option>
         <ion-select-option value="tw">Taiwan</ion-select-option>
@@ -33,6 +35,7 @@
     <ion-buttons slot="end">
       <ion-label>Temperatura:</ion-label>
       <ion-select (ionChange)="filtrarPorTemperatura()" [(ngModel)]="temp">
+        <ion-select-option value="Todos">Todos</ion-select-option>
         <ion-select-option value="Frío">Frío</ion-select-option>
         <ion-select-option value="Caliente">Caliente</ion-select-option>
       </ion-select>

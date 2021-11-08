@@ -33,20 +33,29 @@ export class FavoritosPage implements OnInit{
   }
 
   filtrarPorTipoTe(){
-    this.teService.FiltrarTipoTe(this.tipeTea).subscribe(tea =>{
-      this.teas = tea;
+    if (this.tipeTea == "Todos")
+      this.desordenar()
+    else
+      this.teService.FiltrarTipoTe(this.tipeTea).subscribe(tea =>{
+        this.teas = tea;
     });
   }
 
   filtrarPorTemperatura(){
-    this.teService.FiltrarPorTemperatura(this.temp).subscribe(tea =>{
-      this.teas = tea;
+    if (this.temp == "Todos")
+      this.desordenar()
+    else
+      this.teService.FiltrarPorTemperatura(this.temp).subscribe(tea =>{
+        this.teas = tea;
     });
   }
 
   filtrarPorNacionalidad(){
-    this.teService.FiltrarPorNacionalidad('https://www.countryflags.io/'+this.country+'/flat/64.png').subscribe(tea =>{
-      this.teas = tea;
+    if (this.country == "Todos")
+      this.desordenar()
+    else
+      this.teService.FiltrarPorNacionalidad('https://www.countryflags.io/'+this.country+'/flat/64.png').subscribe(tea =>{
+        this.teas = tea;
     });
   }
 }
