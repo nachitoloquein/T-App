@@ -55,6 +55,7 @@
       <ion-card-header>
         <ion-card-title>{{tea.nombre}}</ion-card-title>
         <ion-card-subtitle>Dificultad</ion-card-subtitle>
+        <app-stars [tea]="tea"></app-stars>
         <ion-card-subtitle>{{tea.dificultad}}/5</ion-card-subtitle>
         <ion-card-subtitle>Nacionalidad</ion-card-subtitle>
         <img [src]="tea.urlNacionalidad">

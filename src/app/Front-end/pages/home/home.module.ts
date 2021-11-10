@@ -3,10 +3,9 @@ import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
 import { HomePage } from './home.page';
-import { ExploreContainerComponentModule } from '../explore-container/explore-container.module';
-
+import { StarsComponent } from '../stars/stars.component';
 import { HomePageRoutingModule } from './home-routing.module';
-import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 
 @NgModule({
@@ -14,10 +13,9 @@ import { Ng2SearchPipe, Ng2SearchPipeModule } from 'ng2-search-filter';
     CommonModule,
     FormsModule,
     IonicModule,
-    ExploreContainerComponentModule,
     HomePageRoutingModule,
     Ng2SearchPipeModule
   ],
-  declarations: [HomePage]
+  declarations: [HomePage, StarsComponent]
 })
 export class HomePageModule {}

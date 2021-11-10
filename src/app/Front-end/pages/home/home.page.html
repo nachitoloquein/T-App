@@ -13,7 +13,7 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card *ngFor = "let tea of teas | filter:searchTerm" [ngSwitch]="tea.dificultad">
+  <ion-card *ngFor = "let tea of teas | filter:searchTerm" >
     <ion-router-link href="tabs/te/{{tea.id}}">
     <img [src]="tea.foto" />
   </ion-router-link>
@@ -24,63 +24,7 @@
     <ion-card-header>
       <ion-card-title>{{tea.nombre}}</ion-card-title>
       <ion-card-subtitle>Dificultad</ion-card-subtitle>
-      <div *ngSwitchCase="1">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div><div *ngSwitchCase="1.5">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-half"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div>
-      <div *ngSwitchCase="2">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div>
-      <div *ngSwitchCase="2.5">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-half"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div><div *ngSwitchCase="3">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div><div *ngSwitchCase="3.5">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-half"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div><div *ngSwitchCase="4">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div><div *ngSwitchCase="4.5">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star-half"></ion-icon>
-        <ion-icon name="star-outline"></ion-icon>
-      </div><div *ngSwitchCase="5">
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-        <ion-icon name="star"></ion-icon>
-      </div>
+        <app-stars [tea]="tea"></app-stars>
       <ion-card-subtitle>Nacionalidad</ion-card-subtitle>
       <img [src]="tea.urlNacionalidad">
     </ion-card-header>
