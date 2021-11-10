@@ -54,7 +54,7 @@ export class FavoritosPage implements OnInit{
     if (this.country == "Todos")
       this.desordenar()
     else
-      this.teService.FiltrarPorNacionalidad('https://www.countryflags.io/'+this.country+'/flat/64.png').subscribe(tea =>{
+      this.teService.FiltrarPorNacionalidad('https://flagcdn.com/64x48/'+this.country+'.png').subscribe(tea =>{
         this.teas = tea;
     });
   }
