@@ -15,7 +15,7 @@ export class FavoritosPage implements OnInit{
   temp: string;
 
   constructor( private teService: TeService) {
-      this.desordenar()
+      this.teService.listaFavoritos()
   }
 
   ngOnInit() {}

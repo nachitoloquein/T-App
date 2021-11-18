@@ -8,11 +8,20 @@ import { TeService } from '../../../services/te.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+
   searchTerm: string;
   teas: any=[];
   constructor(private teService: TeService) {
     this.teService.listaTeas().subscribe(tea=>{
       this.teas = tea;
     })
+  }
+
+  Like(tea){
+    this.teService.likeTea(tea)
+  }
+
+  Dislike(tea){
+    this.teService.dislikeTea(tea)
   }
 }

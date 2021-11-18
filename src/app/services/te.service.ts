@@ -12,6 +12,7 @@ export interface Tea {
   instrucciones: string,
   temperatura: string,
   tipoTe: string,
+  favorito: boolean
 }
 
 @Injectable({
@@ -38,6 +39,8 @@ export class TeService {
     }));
   }
 
+ 
+
   listaTeas(){
     this.teasCollections = this.db.collection<Tea>('te');
     this.ejecutarTiempoReal();
@@ -46,6 +49,12 @@ export class TeService {
 
   OrdernarPor(cosa){
    this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy(cosa));
+   this.ejecutarTiempoReal();
+   return this.teas;
+  }
+
+  listaFavoritos(){
+  this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('favorito','==', true ));
    this.ejecutarTiempoReal();
    return this.teas;
   }
@@ -79,5 +88,13 @@ export class TeService {
         return data;
       }
     }));
+  }
+
+  likeTea(tea){
+    this.db.doc<Tea>(`te/${tea.id}`).update({favorito: true});
+  }
+
+  dislikeTea(tea){
+    this.db.doc<Tea>(`te/${tea.id}`).update({favorito: false});
   }
 }

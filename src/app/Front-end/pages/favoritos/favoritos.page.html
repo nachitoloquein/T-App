@@ -49,7 +49,8 @@
       <img [src]="tea.foto" />
     </ion-router-link>
       <ion-item>
-        <ion-icon name="heart"></ion-icon>
+        <ion-icon  *ngIf="!tea?.favorito" name="heart-outline" (click)="Like(tea)"></ion-icon>
+        <ion-icon  *ngIf="tea?.favorito" name="heart" (click)="Dislike(tea)" ></ion-icon> 
         <ion-icon name="share-social-outline"></ion-icon>
       </ion-item>
       <ion-card-header>
