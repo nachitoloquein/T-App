@@ -15,7 +15,7 @@ export class FavoritosPage implements OnInit{
   temp: string;
 
   constructor( private teService: TeService) {
-      this.teService.listaFavoritos()
+      this.desordenar()
   }
 
   ngOnInit() {}
@@ -27,7 +27,7 @@ export class FavoritosPage implements OnInit{
   }
 
   desordenar(){
-    this.teService.listaTeas().subscribe(tea=>{
+    this.teService.listaFavoritos().subscribe(tea=>{
       this.teas = tea;
   });
   }

@@ -5,13 +5,15 @@ import { IonicModule } from '@ionic/angular';
 import { FavoritosPageRoutingModule } from './favoritos-routing.module';
 import { StarsComponent } from '../stars/stars.component';
 import { FavoritosPage } from './favoritos.page';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    FavoritosPageRoutingModule
+    FavoritosPageRoutingModule,
+    Ng2SearchPipeModule
   ],
   declarations: [FavoritosPage, StarsComponent]
 })
