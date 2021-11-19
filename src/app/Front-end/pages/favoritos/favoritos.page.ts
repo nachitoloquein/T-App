@@ -58,4 +58,11 @@ export class FavoritosPage implements OnInit{
         this.teas = tea;
     });
   }
+  Like(tea){
+    this.teService.likeTea(tea)
+  }
+
+  Dislike(tea){
+    this.teService.dislikeTea(tea)
+  }
 }

@@ -22,5 +22,12 @@ export class TeaDetailComponent implements OnInit {
        this.tea = tea;
       });
   }
+  Like(tea){
+    this.ts.likeTea(tea)
+  }
+
+  Dislike(tea){
+    this.ts.dislikeTea(tea)
+  }
 
 }

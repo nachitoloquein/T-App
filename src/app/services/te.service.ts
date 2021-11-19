@@ -48,7 +48,7 @@ export class TeService {
   }
 
   OrdernarPor(cosa){
-   this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy(cosa));
+   this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy(cosa).where('favorito','==', true));
    this.ejecutarTiempoReal();
    return this.teas;
   }
@@ -60,19 +60,19 @@ export class TeService {
   }
 
   FiltrarTipoTe(tt){
-   this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('tipoTe', '==',tt ));
+   this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('tipoTe', '==',tt ).where('favorito','==', true));
    this.ejecutarTiempoReal();
    return this.teas;
   }
 
   FiltrarPorTemperatura(tem){
-    this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('temperatura', '==', tem));
+    this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('temperatura', '==', tem).where('favorito','==', true));
     this.ejecutarTiempoReal();
     return this.teas;
   }
 
   FiltrarPorNacionalidad(nac){
-    this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('urlNacionalidad', '==', nac ));
+    this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('urlNacionalidad', '==', nac ).where('favorito','==', true));
     this.ejecutarTiempoReal();
     return this.teas;
    }
