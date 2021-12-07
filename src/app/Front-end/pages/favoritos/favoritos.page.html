@@ -44,6 +44,7 @@
 </ion-header>
 
 <ion-content fullscreen>
+  <div *ngIf="teas.length">
     <ion-card *ngFor = "let tea of teas">
       <ion-router-link href="tabs/te/{{tea.id}}">
       <img [src]="tea.foto" />
@@ -62,4 +63,19 @@
         <img [src]="tea.urlNacionalidad">
       </ion-card-header>
     </ion-card>
+  </div>
+
+  <div *ngIf="!teas.length">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <div class="ion-text-center">
+            <h1>No hay favoritos!</h1>
+            <h4>Pulsa en el corazón de una receta para indicar que te gusta y de esta forma poder visualizarla en este panel.</h4>
+            <img src="https://media2.giphy.com/media/RirZYpDYvRIFuzUxZ1/200w.gif?cid=82a1493bmcd7vd6ikzx1m3lq3rfgzrmnhdxqfmzbf2fadenu&rid=200w.gif&ct=g">
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
 </ion-content>
