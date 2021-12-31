@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { IonicModule } from '@ionic/angular';
 import { FavoritosPageRoutingModule } from './favoritos-routing.module';
-import { StarsComponent } from '../stars/stars.component';
+import { StarsComponent } from '../../components/stars/stars.component';
 import { FavoritosPage } from './favoritos.page';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 

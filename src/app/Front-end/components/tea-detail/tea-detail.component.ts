@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Tea, TeService } from '../../../services/te.service';
+import { TeService } from '../../../services/te.service';
 import { ActivatedRoute, Params } from '@angular/router'
+import { Tea } from 'src/app/models/tea';
 
 @Component({
   selector: 'app-tea-detail',

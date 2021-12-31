@@ -2,18 +2,8 @@ import { Injectable } from '@angular/core';
 import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
+import { Tea } from '../models/tea';
 
-export interface Tea {
-  nombre: string,
-  dificultad: number,
-  urlNacionalidad: string,
-  id: string,
-  foto: string,
-  instrucciones: string,
-  temperatura: string,
-  tipoTe: string,
-  favorito: boolean
-}
 
 @Injectable({
   providedIn: 'root'

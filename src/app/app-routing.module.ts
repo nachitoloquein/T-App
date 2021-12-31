@@ -6,22 +6,22 @@ import { NologinGuard } from "./guards/nologin.guard";
 const routes: Routes = [
   {
     path: 'login',
-    loadChildren: () => import('./Front-end/pages/login/login.module').then(m => m.LoginPageModule),
+    loadChildren: () => import('./Front-end/auth/login/login.module').then(m => m.LoginPageModule),
     canActivate: [NologinGuard]
   },
   {
     path: '',
-    loadChildren: () => import('./Front-end/masterPage/tabs/tabs.module').then(m => m.TabsPageModule),
+    loadChildren: () => import('./Front-end/pages/tabs/tabs.module').then(m => m.TabsPageModule),
     canActivate : [AuthGuard],
   },
   {
     path: 'register',
-    loadChildren: () => import('./Front-end/pages/register/register.module').then( m => m.RegisterPageModule),
+    loadChildren: () => import('./Front-end/auth/register/register.module').then( m => m.RegisterPageModule),
     canActivate : [NologinGuard]
   },
   {
     path: 'recuperar-contrasena',
-    loadChildren: () => import('./Front-end/pages/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
+    loadChildren: () => import('./Front-end/auth/recuperar-contrasena/recuperar-contrasena.module').then( m => m.RecuperarContrasenaPageModule)
   },
 ];
 @NgModule({

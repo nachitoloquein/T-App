@@ -3,7 +3,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 import { TabsPage } from './tabs.page';
 import { AuthGuard } from "../../../guards/auth.guard";
-import { TeaDetailComponent } from '../../pages/tea-detail/tea-detail.component'
+import { TeaDetailComponent } from '../../components/tea-detail/tea-detail.component'
 
 const routes: Routes = [
   {
@@ -12,17 +12,17 @@ const routes: Routes = [
     children: [
       {
         path: 'home',
-        loadChildren: () => import('../../pages/home/home.module').then( m => m.HomePageModule),
+        loadChildren: () => import('../home/home.module').then( m => m.HomePageModule),
         canActivate : [AuthGuard]
       },
       {
         path: 'favoritos',
-        loadChildren: () => import('../../pages/favoritos/favoritos.module').then( m => m.FavoritosPageModule),
+        loadChildren: () => import('../favoritos/favoritos.module').then( m => m.FavoritosPageModule),
         canActivate : [AuthGuard]
       },
       {
         path: 'perfil',
-        loadChildren: () => import('../../pages/perfil/perfil.module').then( m => m.PerfilPageModule),
+        loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule),
         canActivate : [AuthGuard]
       },
       {

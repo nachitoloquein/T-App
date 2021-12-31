@@ -1,5 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { Tea } from 'src/app/services/te.service';
+import { Tea } from 'src/app/models/tea';
 
 
 @Component({
