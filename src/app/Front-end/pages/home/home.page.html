@@ -13,7 +13,9 @@
 </ion-header>
 
 <ion-content fullscreen>
-  <ion-card *ngFor = "let tea of teas | filter:searchTerm" >
+  <div *ngFor = "let tea of teas | filter:searchTerm" >
+    <app-tea-card [tea]="tea"></app-tea-card>
+  <!-- <ion-card >
     <ion-router-link href="tabs/te/{{tea.id}}">
     <img [src]="tea.foto" />
   </ion-router-link>
@@ -29,7 +31,8 @@
       <ion-card-subtitle>Nacionalidad</ion-card-subtitle>
       <img [src]="tea.urlNacionalidad">
     </ion-card-header>
-  </ion-card>
+  </ion-card> -->
+</div>
  
 </ion-content>
 

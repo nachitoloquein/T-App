@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument } from '@angular/fire/compat/firestore';
+import { AngularFirestore, AngularFirestoreCollection, AngularFirestoreDocument, sortedChanges } from '@angular/fire/compat/firestore';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 import { Tea } from '../models/tea';
@@ -17,6 +17,31 @@ export class TeService {
   private teaDoc: AngularFirestoreDocument<Tea>;
 
   constructor( private db: AngularFirestore) { 
+    this.teasCollections = db.collection<Tea>('te');
+    this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
+      return actions.map(a =>{
+        const data = a.payload.doc.data() as Tea;
+        const id = a.payload.doc.id;
+        return {id, ...data};
+      });
+    }));
+  }
+
+  getTeas(){
+    return this.teas;
+  }
+
+  ObtenerTe(idTea: string){
+    this.teaDoc =  this.db.doc<Tea>(`te/${idTea}`);
+    return this.tea = this.teaDoc.snapshotChanges().pipe(map(action=>{
+      if (action.payload.exists==false){
+        return null;
+      }else{
+        const data = action.payload.data() as Tea;
+        data.id = action.payload.id;
+        return data;
+      }
+    }));
   }
 
   ejecutarTiempoReal(){
@@ -29,14 +54,6 @@ export class TeService {
     }));
   }
 
- 
-
-  listaTeas(){
-    this.teasCollections = this.db.collection<Tea>('te');
-    this.ejecutarTiempoReal();
-    return this.teas;
-  }
-
   OrdernarPor(cosa){
    this.teasCollections = this.db.collection<Tea>('te', ref => ref.orderBy(cosa).where('favorito','==', true));
    this.ejecutarTiempoReal();
@@ -44,9 +61,12 @@ export class TeService {
   }
 
   listaFavoritos(){
-  this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('favorito','==', true ));
+  return this.getTeas().pipe(map(teas => teas.filter(teas => teas.favorito)))
+
+  /* this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('favorito','==', true ));
    this.ejecutarTiempoReal();
-   return this.teas;
+   return this.teas; */
+
   }
 
   FiltrarTipoTe(tt){
@@ -67,18 +87,7 @@ export class TeService {
     return this.teas;
    }
 
-  ObtenerTe(idTea: string){
-    this.teaDoc =  this.db.doc<Tea>(`te/${idTea}`);
-    return this.tea = this.teaDoc.snapshotChanges().pipe(map(action=>{
-      if (action.payload.exists==false){
-        return null;
-      }else{
-        const data = action.payload.data() as Tea;
-        data.id = action.payload.id;
-        return data;
-      }
-    }));
-  }
+  
 
   likeTea(tea){
     this.db.doc<Tea>(`te/${tea.id}`).update({favorito: true});

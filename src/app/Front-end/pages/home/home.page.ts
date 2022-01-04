@@ -11,17 +11,10 @@ export class HomePage {
 
   searchTerm: string;
   teas: any=[];
+
   constructor(private teService: TeService) {
-    this.teService.listaTeas().subscribe(tea=>{
-      this.teas = tea;
+    this.teService.getTeas().subscribe(tea=>{
+    this.teas = tea;
     })
-  }
-
-  Like(tea){
-    this.teService.likeTea(tea)
-  }
-
-  Dislike(tea){
-    this.teService.dislikeTea(tea)
-  }
+   }
 }

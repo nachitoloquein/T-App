@@ -1,5 +1,5 @@
 export interface Tea {
-    id?: string,
+    id: string,
     nombre: string,
     dificultad: number,
     urlNacionalidad: string,
