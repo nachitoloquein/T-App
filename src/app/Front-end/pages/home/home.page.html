@@ -15,23 +15,6 @@
 <ion-content fullscreen>
   <div *ngFor = "let tea of teas | filter:searchTerm" >
     <app-tea-card [tea]="tea"></app-tea-card>
-  <!-- <ion-card >
-    <ion-router-link href="tabs/te/{{tea.id}}">
-    <img [src]="tea.foto" />
-  </ion-router-link>
-    <ion-item>
-      <ion-icon  *ngIf="!tea?.favorito" name="heart-outline" (click)="Like(tea)"></ion-icon>
-      <ion-icon  *ngIf="tea?.favorito" name="heart" (click)="Dislike(tea)" ></ion-icon>
-      <ion-icon name="share-social-outline"></ion-icon>
-    </ion-item>
-    <ion-card-header>
-      <ion-card-title>{{tea.nombre}}</ion-card-title>
-      <ion-card-subtitle>Dificultad</ion-card-subtitle>
-        <app-stars [tea]="tea"></app-stars>
-      <ion-card-subtitle>Nacionalidad</ion-card-subtitle>
-      <img [src]="tea.urlNacionalidad">
-    </ion-card-header>
-  </ion-card> -->
 </div>
  
 </ion-content>

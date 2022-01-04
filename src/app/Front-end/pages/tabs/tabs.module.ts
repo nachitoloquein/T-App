@@ -5,7 +5,7 @@ import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs-routing.module';
 import { TabsPage } from './tabs.page';
 import { TeaDetailComponent } from '../../components/tea-detail/tea-detail.component';
-
+import { StarsComponent } from '../../components/stars/stars.component'
 
 
 @NgModule({
@@ -15,7 +15,7 @@ import { TeaDetailComponent } from '../../components/tea-detail/tea-detail.compo
     IonicModule,
     TabsPageRoutingModule
   ],
-  declarations: [TabsPage, TeaDetailComponent],
+  declarations: [TabsPage, TeaDetailComponent, StarsComponent],
   entryComponents: [TeaDetailComponent]
 })
 export class TabsPageModule {}

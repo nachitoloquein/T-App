@@ -5,6 +5,7 @@ import { IonicModule } from '@ionic/angular';
 import { FavoritosPageRoutingModule } from './favoritos-routing.module';
 import { StarsComponent } from '../../components/stars/stars.component';
 import { FavoritosPage } from './favoritos.page';
+import { TeaCardComponent } from '../../components/tea-card/tea-card.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 
 @NgModule({
@@ -15,6 +16,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FavoritosPageRoutingModule,
     Ng2SearchPipeModule
   ],
-  declarations: [FavoritosPage, StarsComponent]
+  declarations: [FavoritosPage, StarsComponent, TeaCardComponent]
 })
 export class FavoritosPageModule {}
