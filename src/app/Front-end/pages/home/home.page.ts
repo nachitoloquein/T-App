@@ -26,6 +26,8 @@ export class HomePage {
       event: ev,
       translucent: true
     });
-    return await popover.present();
+    await popover.present();
    }
+
+   
 }
