@@ -1,11 +1,14 @@
-<ion-header class="ion-no-border">
+<ion-header>
   <ion-toolbar>
     <ion-title>
       Principal
     </ion-title>
+    <ion-buttons slot="end">
+      <ion-icon name="ellipsis-horizontal" (click)="abrirPopover($event)" class="popover-conf"></ion-icon>
+    </ion-buttons>
   </ion-toolbar>  
   <ion-toolbar>
-    <ion-searchbar class="input-search" placeholder='Buscar' [(ngModel)]="searchTerm" showCancelButton="focus"></ion-searchbar>
+    <ion-searchbar class="input-search" placeholder='Buscar' [(ngModel)]="searchTerm" showCancelButton="focus" mode=ios></ion-searchbar>
   </ion-toolbar>
 </ion-header>
 

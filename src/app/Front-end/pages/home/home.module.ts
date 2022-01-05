@@ -6,6 +6,7 @@ import { HomePage } from './home.page';
 import { TeaCardComponent } from '../../components/tea-card/tea-card.component';
 import { HomePageRoutingModule } from './home-routing.module';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OptionsComponent } from '../../components/options/options.component'
 
 
 @NgModule({
@@ -16,6 +17,7 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     HomePageRoutingModule,
     Ng2SearchPipeModule
   ],
-  declarations: [HomePage, TeaCardComponent]
+  declarations: [HomePage, TeaCardComponent, OptionsComponent],
+  entryComponents:[OptionsComponent]
 })
 export class HomePageModule {}
