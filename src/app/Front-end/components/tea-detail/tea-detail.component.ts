@@ -15,11 +15,11 @@ export class TeaDetailComponent implements OnInit {
 
   ngOnInit() {
     const idTea =  this.route.snapshot.params['id']; 
-    this.obtenerTe(idTea);
+    this.getTeaById(idTea);
   }
 
-  obtenerTe(idTea: string): void{
-    this.ts.ObtenerTe(idTea).subscribe(tea=>{
+  getTeaById(idTea: string): void{
+    this.ts.getTeaById(idTea).subscribe(tea=>{
        this.tea = tea;
       });
   }

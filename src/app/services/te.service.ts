@@ -16,6 +16,7 @@ export class TeService {
   private tea: Observable<Tea>;
   private teaDoc: AngularFirestoreDocument<Tea>;
 
+  //inicializacion de la variable teas
   constructor( private db: AngularFirestore) { 
     this.teasCollections = db.collection<Tea>('te');
     this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
@@ -27,11 +28,12 @@ export class TeService {
     }));
   }
 
+  //Read
   getTeas(){
     return this.teas;
   }
 
-  ObtenerTe(idTea: string){
+  getTeaById(idTea: string){
     this.teaDoc =  this.db.doc<Tea>(`te/${idTea}`);
     return this.tea = this.teaDoc.snapshotChanges().pipe(map(action=>{
       if (action.payload.exists==false){
