@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input} from '@angular/core';
+import { Tea } from 'src/app/models/tea';
+import { TeService } from 'src/app/services/te.service';
 
 @Component({
   selector: 'app-heart-share',
@@ -7,8 +9,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeartShareComponent implements OnInit {
 
-  constructor() { }
+  @Input() tea: Tea;
+  constructor( private teService: TeService) { }
 
   ngOnInit() {}
+
+  Like(tea){
+    this.teService.likeTea(tea)
+  }
+
+  Dislike(tea){
+    this.teService.dislikeTea(tea)
+  }
 
 }

@@ -2,11 +2,7 @@
   <ion-router-link href="tabs/te/{{tea.id}}">
     <img [src]="tea.foto" />
   </ion-router-link>
-  <ion-item>
-    <ion-icon  *ngIf="!tea?.favorito" name="heart-outline" (click)="Like(tea)"></ion-icon>
-    <ion-icon  *ngIf="tea?.favorito" name="heart" (click)="Dislike(tea)" ></ion-icon>
-    <ion-icon name="share-social-outline"></ion-icon>
-  </ion-item>
+  <app-heart-share [tea]="tea" ></app-heart-share>
   <ion-card-header>
     <ion-card-title>{{tea.nombre}}</ion-card-title>
     <ion-card-subtitle>Dificultad</ion-card-subtitle>

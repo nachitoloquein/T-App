@@ -7,7 +7,7 @@ import { StarsComponent } from '../../components/stars/stars.component';
 import { FavoritosPage } from './favoritos.page';
 import { TeaCardComponent } from '../../components/tea-card/tea-card.component';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
-
+import { HeartShareComponent } from '../../components/heart-share/heart-share.component';
 @NgModule({
   imports: [
     CommonModule,
@@ -16,6 +16,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
     FavoritosPageRoutingModule,
     Ng2SearchPipeModule
   ],
-  declarations: [FavoritosPage, StarsComponent, TeaCardComponent]
+  declarations: [FavoritosPage, StarsComponent, TeaCardComponent, HeartShareComponent]
 })
 export class FavoritosPageModule {}

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { Tea } from '../../../models/tea';
-import { TeService } from 'src/app/services/te.service';
+
 
 @Component({
   selector: 'app-tea-card',
@@ -10,18 +10,10 @@ import { TeService } from 'src/app/services/te.service';
 export class TeaCardComponent implements OnInit {
 
   @Input() tea: Tea;
-  constructor( private teService: TeService) {
+  constructor() {
     
    }
 
   ngOnInit() {}
-
-  Like(tea){
-    this.teService.likeTea(tea)
-  }
-
-  Dislike(tea){
-    this.teService.dislikeTea(tea)
-  }
 
 }
