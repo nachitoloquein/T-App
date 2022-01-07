@@ -21,11 +21,6 @@ const routes: Routes = [
         canActivate : [AuthGuard]
       },
       {
-        path: 'perfil',
-        loadChildren: () => import('../perfil/perfil.module').then( m => m.PerfilPageModule),
-        canActivate : [AuthGuard]
-      },
-      {
         path: '',
         redirectTo: '/tabs/home',
         pathMatch: 'full'
