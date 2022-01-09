@@ -16,7 +16,7 @@ export class TeService {
   private tea: Observable<Tea>;
   private teaDoc: AngularFirestoreDocument<Tea>;
 
-  //inicializacion de la variable teas
+  //inicializacion de la variable teas y ejecución en tiempo real
   constructor( private db: AngularFirestore) { 
     this.teasCollections = db.collection<Tea>('te');
     this.teas = this.teasCollections.snapshotChanges().pipe(map(actions =>{
@@ -28,11 +28,12 @@ export class TeService {
     }));
   }
 
-  //Read
+  //Obtener datos
   getTeas(){
     return this.teas;
   }
 
+  //Obtener Té por ID
   getTeaById(idTea: string){
     this.teaDoc =  this.db.doc<Tea>(`te/${idTea}`);
     return this.tea = this.teaDoc.snapshotChanges().pipe(map(action=>{
@@ -64,11 +65,6 @@ export class TeService {
 
   listaFavoritos(){
   return this.getTeas().pipe(map(teas => teas.filter(teas => teas.favorito)))
-
-  /* this.teasCollections = this.db.collection<Tea>('te', ref => ref.where('favorito','==', true ));
-   this.ejecutarTiempoReal();
-   return this.teas; */
-
   }
 
   FiltrarTipoTe(tt){

@@ -10,23 +10,22 @@ import { AlertController } from '@ionic/angular';
 })
 export class OptionsComponent implements OnInit {
 
+
   constructor(private renderer: Renderer2, 
               private authservice : AuthService, 
               private popoverController: PopoverController,
               private alertController: AlertController
-              ) {}
+              ) 
+  {}
 
   ngOnInit() {}
 
-  onToggleColorTheme(event){
-    console.log(event.detail.checked);
-    if (event.detail.checked){
-      //document.body.setAttribute('color-theme', 'dark');
-      this.renderer.setAttribute(document.body, 'color-theme', 'dark')
+  toggleTheme(event){
+    if (!event.detail.checked){
+      document.body.setAttribute('color-theme', 'dark')
     }
     else{
-      //document.body.setAttribute('color-theme', 'light');
-      this.renderer.setAttribute(document.body, 'color-theme', 'light')
+      document.body.setAttribute('color-theme', 'light')
     }
   }
 
