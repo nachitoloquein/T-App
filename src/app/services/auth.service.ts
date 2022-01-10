@@ -15,15 +15,14 @@ export interface userInterface{
 })
 export class AuthService {
 
-  constructor(private AFauth : AngularFireAuth,
+  constructor(public AFauth : AngularFireAuth,
     private router: Router, private afs: AngularFirestore) { }
 
   login(email: string, password: string){
-
     return new Promise((resolve, rejected) => {
       this.AFauth.signInWithEmailAndPassword(email, password).then(user =>{
         resolve(user);
-      }).catch(err => rejected(err));
+      }).catch(err => rejected(console.log(err)));
     });
   }
 
@@ -52,9 +51,5 @@ export class AuthService {
       admin: false
     }
     return userRef.set(data, {merge:true})
-  }
-
-  isAdmin(userUid){
-    return this.afs.doc<userInterface>(`users/${userUid}`).valueChanges();
   }
 }
