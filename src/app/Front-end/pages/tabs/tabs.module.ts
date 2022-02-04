@@ -4,18 +4,16 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { TabsPageRoutingModule } from './tabs-routing.module';
 import { TabsPage } from './tabs.page';
-import { TeaDetailComponent } from '../../components/tea-detail/tea-detail.component';
-import { StarsComponent } from '../../components/stars/stars.component'
-
+import { ModuloComponentsModule } from '../../components/modulo-components.module';
 
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    TabsPageRoutingModule
+    TabsPageRoutingModule,
+    ModuloComponentsModule
   ],
-  declarations: [TabsPage, TeaDetailComponent, StarsComponent],
-  entryComponents: [TeaDetailComponent]
+  declarations: [TabsPage]
 })
 export class TabsPageModule {}

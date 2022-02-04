@@ -10,24 +10,22 @@ import { AlertController } from '@ionic/angular';
 })
 export class OptionsComponent implements OnInit {
 
+  darkMode: boolean = true;
 
   constructor(private renderer: Renderer2, 
               private authservice : AuthService, 
               private popoverController: PopoverController,
               private alertController: AlertController
-              ) 
-  {}
+              ){  /* const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+              this.darkMode = prefersDark.matches; */}
 
   ngOnInit() {}
 
-  toggleTheme(event){
-    if (!event.detail.checked){
-      document.body.setAttribute('color-theme', 'dark')
-    }
-    else{
-      document.body.setAttribute('color-theme', 'light')
-    }
-  }
+/*   cambio() {
+    this.darkMode = !this.darkMode;
+    document.body.classList.toggle( 'dark' );
+    
+  } */
 
   async dismissPopover() {
     await this.popoverController.dismiss();

@@ -5,7 +5,7 @@
     </ion-buttons>
     <ion-buttons slot="end">
       <ion-label>Ordenar por:</ion-label>
-      <ion-select interface="action-sheet" (ionChange)="ordenar()" [(ngModel)]="opcion">
+      <ion-select interface="action-sheet" (ionChange)="ordenar()" [(ngModel)]="opcion" mode="ios">
         <ion-select-option value="nombre">Alfabeto</ion-select-option>
         <ion-select-option value="dificultad">Dificultad</ion-select-option>
       </ion-select>

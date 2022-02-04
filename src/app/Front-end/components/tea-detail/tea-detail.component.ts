@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TeService } from '../../../services/te.service';
-import { ActivatedRoute, Params } from '@angular/router'
+import { ActivatedRoute } from '@angular/router'
 import { Tea } from 'src/app/models/tea';
 
 @Component({

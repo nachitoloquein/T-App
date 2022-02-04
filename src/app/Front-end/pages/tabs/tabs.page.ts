@@ -6,7 +6,13 @@ import { Component} from '@angular/core';
 })
 export class TabsPage {
 
-  constructor() { }
+  constructor() {/* this.checkDarkTheme() */ }
 
+/*   checkDarkTheme() {
+    const prefersDark = window.matchMedia('(prefers-color-scheme: dark)');
+    if ( prefersDark.matches ) {
+      document.body.classList.toggle( 'dark' );
+    }
+  } */
 
 }
